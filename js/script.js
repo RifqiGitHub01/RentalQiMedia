@@ -22,15 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================================================
   const cartState = {};
   let isTransportSelected = false;
+  let selectedRentalDate = ""; // Menyimpan tanggal sewa pilihan user (YYYY-MM-DD)
 
   // Elemen DOM Floating Summary
   const floatingBar = document.getElementById("floatingOrderBar");
   const totalItemsEl = document.getElementById("totalSelectedItems");
   const totalAmountEl = document.getElementById("totalOrderAmount");
   const btnCheckoutWA = document.getElementById("btnCheckoutWA");
+  const btnResetOrder = document.getElementById("btnResetOrder");
   const backToTopBtn = document.getElementById("backToTop");
 
-  // Elemen Checkbox Transportasi (Section Bawah & Floating Bar)
+  // Elemen Checkbox & Section Transportasi (Section Bawah & Floating Bar)
+  const transportSection =
+    document.getElementById("layanan-tambahan") ||
+    document.querySelector(".extra-service-section");
   const transportCheckbox = document.getElementById("transportCheckbox");
   const transportFloatingCheckbox = document.getElementById(
     "transportFloatingCheckbox",
@@ -46,6 +51,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalItemCounter = document.getElementById("modalItemCounter");
   const modalTransportRow = document.getElementById("modalTransportRow");
   const modalTotalAmount = document.getElementById("modalTotalAmount");
+  const modalRentalDateRow = document.getElementById("modalRentalDateRow");
+  const modalRentalDateValue = document.getElementById("modalRentalDateValue");
+
+  // Elemen DOM Welcome & Date Picker Modal
+  const welcomeModal = document.getElementById("welcomeModal");
+  const welcomeStep1 = document.getElementById("welcomeStep1");
+  const welcomeStep2 = document.getElementById("welcomeStep2");
+  const btnWelcomeContinue = document.getElementById("btnWelcomeContinue");
+  const rentalDatePicker = document.getElementById("rentalDatePicker");
+  const dateInputHint = document.getElementById("dateInputHint");
+  const btnWelcomeGetStarted = document.getElementById("btnWelcomeGetStarted");
+  const headerRentalDateWrapper = document.getElementById(
+    "headerRentalDateWrapper",
+  );
+  const headerRentalDateText = document.getElementById("headerRentalDateText");
+  const btnChangeDate = document.getElementById("btnChangeDate");
+
+  // Elemen DOM Lightbox Auto Zoom
+  const imageLightbox = document.getElementById("imageLightbox");
+  const lightboxContainer = document.getElementById("lightboxContainer");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+  const lightboxTitle = document.getElementById("lightboxTitle");
+  const lightboxDesc = document.getElementById("lightboxDesc");
+  const btnLightboxClose = document.getElementById("btnLightboxClose");
 
   /**
    * Format angka menjadi mata uang Rupiah (IDR)
@@ -54,6 +84,33 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function formatRupiah(number) {
     return "Rp " + number.toLocaleString("id-ID");
+  }
+
+  /**
+   * Format string tanggal YYYY-MM-DD ke Bahasa Indonesia yang elegan
+   * @param {string} dateStr
+   * @returns {string} Contoh: Rabu, 16 September 2026
+   */
+  function formatIndonesianDate(dateStr) {
+    if (!dateStr) return "Belum ditentukan";
+    try {
+      const parts = dateStr.split("-");
+      if (parts.length === 3) {
+        const year = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        const dateObj = new Date(year, month, day);
+        return dateObj.toLocaleDateString("id-ID", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+      }
+      return dateStr;
+    } catch (e) {
+      return dateStr;
+    }
   }
 
   /**
@@ -68,6 +125,22 @@ document.addEventListener("DOMContentLoaded", () => {
       itemsTotal += item.qty * item.price;
     });
 
+    // Kontrol visibilitas opsi Transportasi di section utama (hanya muncul jika total QTY > 0)
+    if (transportSection) {
+      if (totalQty > 0) {
+        transportSection.style.display = "block";
+      } else {
+        transportSection.style.display = "none";
+        // Reset status checkbox jika QTY kembali menjadi 0
+        if (isTransportSelected) {
+          isTransportSelected = false;
+          if (transportCheckbox) transportCheckbox.checked = false;
+          if (transportFloatingCheckbox)
+            transportFloatingCheckbox.checked = false;
+        }
+      }
+    }
+
     const grandTotal = itemsTotal + (isTransportSelected ? TRANSPORT_FEE : 0);
 
     if (totalItemsEl) {
@@ -76,6 +149,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (totalAmountEl) {
       totalAmountEl.textContent = formatRupiah(grandTotal);
+    }
+
+    // Kontrol tombol Continue / Checkout via WhatsApp
+    if (btnCheckoutWA) {
+      if (totalQty === 0) {
+        btnCheckoutWA.setAttribute("disabled", "true");
+      } else {
+        btnCheckoutWA.removeAttribute("disabled");
+      }
     }
 
     // Tampilkan atau sembunyikan floating bar secara dinamis
@@ -115,6 +197,48 @@ document.addEventListener("DOMContentLoaded", () => {
     transportFloatingCheckbox.addEventListener("change", (e) => {
       handleTransportToggle(e.target.checked);
     });
+  }
+
+  // ========================================================================
+  // 3b. FITUR RESET ALL / BATALKAN SEMUA PILIHAN
+  // ========================================================================
+  function resetAllSelections() {
+    // 1. Kosongkan state keranjang belanja
+    Object.keys(cartState).forEach((key) => delete cartState[key]);
+
+    // 2. Reset semua angka QTY tampilan kartu menjadi 0 dan nonaktifkan tombol minus
+    const allQtyControls = document.querySelectorAll(".card-qty-control");
+    allQtyControls.forEach((control) => {
+      const qtyValueEl = control.querySelector(".qty-value");
+      const btnMinus = control.querySelector(".qty-btn-minus");
+      if (qtyValueEl) qtyValueEl.textContent = "0";
+      if (btnMinus) btnMinus.setAttribute("disabled", "true");
+    });
+
+    // 3. Hapus kelas 'has-qty' dari semua kartu produk dan opsi baris
+    document.querySelectorAll(".product-card.has-qty").forEach((card) => {
+      card.classList.remove("has-qty");
+    });
+    document.querySelectorAll(".card-option-row.has-qty").forEach((row) => {
+      row.classList.remove("has-qty");
+    });
+
+    // 4. Hilangkan centang (uncheck) pada checkbox transportasi
+    isTransportSelected = false;
+    if (transportCheckbox) transportCheckbox.checked = false;
+    if (transportFloatingCheckbox) transportFloatingCheckbox.checked = false;
+
+    // 5. Sembunyikan kembali elemen opsi transportasi
+    if (transportSection) {
+      transportSection.style.display = "none";
+    }
+
+    // 6. Jalankan ulang kalkulasi total order
+    updateOrderSummary();
+  }
+
+  if (btnResetOrder) {
+    btnResetOrder.addEventListener("click", resetAllSelections);
   }
 
   // ========================================================================
@@ -266,6 +390,12 @@ document.addEventListener("DOMContentLoaded", () => {
       modalTotalAmount.textContent = formatRupiah(itemsTotal);
     }
 
+    // Update tanggal sewa terpilih pada modal
+    if (modalRentalDateValue) {
+      modalRentalDateValue.textContent =
+        formatIndonesianDate(selectedRentalDate);
+    }
+
     // Reset status persetujuan wajib
     if (agreementCheckbox) {
       agreementCheckbox.checked = false;
@@ -274,9 +404,21 @@ document.addEventListener("DOMContentLoaded", () => {
       btnModalProceed.setAttribute("disabled", "true");
     }
 
-    // Tampilkan modal dialog
+    // Tampilkan modal dialog & reset scroll posisi agar selalu mulai dari atas
     if (orderModal) {
       orderModal.classList.add("open");
+      const modalBody = orderModal.querySelector(".modal-body");
+      if (modalBody) {
+        modalBody.scrollTop = 0;
+      }
+      const modalDialog = orderModal.querySelector(".modal-dialog");
+      if (modalDialog) {
+        modalDialog.scrollTop = 0;
+      }
+      const itemsList = orderModal.querySelector(".modal-items-list");
+      if (itemsList) {
+        itemsList.scrollTop = 0;
+      }
       document.body.style.overflow = "hidden";
     }
   }
@@ -361,10 +503,15 @@ document.addEventListener("DOMContentLoaded", () => {
         transportText = `\n🚚 *LAYANAN TAMBAHAN:*\n• Antar Jemput ke Lokasi Event: ${formatRupiah(TRANSPORT_FEE)} (PP)\n`;
       }
 
+      // Format baris tanggal sewa terpilih
+      const rentalDateLine = selectedRentalDate
+        ? `📅 *TANGGAL SEWA:* ${formatIndonesianDate(selectedRentalDate)}\n\n`
+        : "";
+
       // Susun format template pesan WhatsApp
       const message = `Halo Admin ${WHATSAPP_CONFIG.storeName}, saya ingin menyewa peralatan multimedia berikut:
 
-📋 *RINCIAN SEWA PERALATAN:*
+${rentalDateLine}📋 *RINCIAN SEWA PERALATAN:*
 ${orderListText}${transportText}
 💰 *TOTAL ESTIMASI BIAYA:* ${formatRupiah(grandTotal)}/hari
 
@@ -471,4 +618,178 @@ Apakah unit-unit tersebut tersedia untuk jadwal sewa saya? Mohon informasi persy
       observer.observe(card);
     });
   }
+
+  // ========================================================================
+  // 11. ALUR WELCOME POP-UP & DATE PICKER (PINTU MASUK)
+  // ========================================================================
+  function initWelcomeFlow() {
+    if (!welcomeModal) return;
+
+    // Kunci halaman dan tampilkan pop-up saat pertama kali dimuat
+    document.body.classList.add("welcome-locked");
+    welcomeModal.classList.add("active");
+
+    // Tetapkan batas minimal tanggal sewa (hari ini)
+    if (rentalDatePicker) {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const day = String(now.getDate()).padStart(2, "0");
+      const todayString = `${year}-${month}-${day}`;
+      rentalDatePicker.min = todayString;
+    }
+
+    // Langkah 1 -> Langkah 2 (Klik Tombol Continue)
+    if (btnWelcomeContinue && welcomeStep1 && welcomeStep2) {
+      btnWelcomeContinue.addEventListener("click", () => {
+        welcomeStep1.classList.remove("active");
+        welcomeStep2.classList.add("active");
+        if (rentalDatePicker) {
+          rentalDatePicker.focus();
+        }
+      });
+    }
+
+    // Validasi pemilihan tanggal sewa
+    function handleDateChange() {
+      if (!rentalDatePicker || !btnWelcomeGetStarted) return;
+      const dateVal = rentalDatePicker.value;
+      if (dateVal && dateVal.trim() !== "") {
+        btnWelcomeGetStarted.removeAttribute("disabled");
+        if (dateInputHint) {
+          dateInputHint.textContent = `Tanggal dipilih: ${formatIndonesianDate(dateVal)}`;
+          dateInputHint.style.color = "var(--primary)";
+        }
+      } else {
+        btnWelcomeGetStarted.setAttribute("disabled", "true");
+        if (dateInputHint) {
+          dateInputHint.textContent =
+            "Silakan pilih tanggal untuk mengaktifkan tombol mulai.";
+          dateInputHint.style.color = "var(--text-light)";
+        }
+      }
+    }
+
+    if (rentalDatePicker) {
+      rentalDatePicker.addEventListener("input", handleDateChange);
+      rentalDatePicker.addEventListener("change", handleDateChange);
+    }
+
+    // Langkah 3 (Klik Get Started: Buka Akses & Simpan Tanggal)
+    if (btnWelcomeGetStarted) {
+      btnWelcomeGetStarted.addEventListener("click", () => {
+        if (!rentalDatePicker || !rentalDatePicker.value) return;
+
+        selectedRentalDate = rentalDatePicker.value;
+        const formattedDate = formatIndonesianDate(selectedRentalDate);
+
+        // Update badge tanggal di header
+        if (headerRentalDateText) {
+          headerRentalDateText.textContent = formattedDate;
+        }
+        if (headerRentalDateWrapper) {
+          headerRentalDateWrapper.style.display = "flex";
+        }
+
+        // Update tanggal di modal checkout jika ada
+        if (modalRentalDateValue) {
+          modalRentalDateValue.textContent = formattedDate;
+        }
+
+        // Tutup modal welcome & buka kunci halaman
+        welcomeModal.classList.remove("active");
+        document.body.classList.remove("welcome-locked");
+      });
+    }
+
+    // Opsi tombol 'Ubah' pada Header Badge Tanggal
+    if (btnChangeDate) {
+      btnChangeDate.addEventListener("click", () => {
+        if (welcomeStep1) welcomeStep1.classList.remove("active");
+        if (welcomeStep2) welcomeStep2.classList.add("active");
+        if (welcomeModal) welcomeModal.classList.add("active");
+        document.body.classList.add("welcome-locked");
+        if (rentalDatePicker) {
+          rentalDatePicker.focus();
+        }
+      });
+    }
+  }
+
+  initWelcomeFlow();
+
+  // ========================================================================
+  // 12. FITUR LIGHTBOX AUTO ZOOM (MODAL ZOOM GAMBAR DENGAN CAPTION KHUSUS)
+  // ========================================================================
+  function openLightbox(imgElement) {
+    if (!imageLightbox || !lightboxImg || !imgElement) return;
+
+    lightboxImg.src = imgElement.src;
+    lightboxImg.alt = imgElement.alt || "Zoom Gambar Peralatan";
+
+    const title = imgElement.dataset.title;
+    const desc = imgElement.dataset.desc;
+
+    // SYARAT KHUSUS: Caption (Judul & Deskripsi) HANYA untuk 5 Smartphone
+    if (title && title.trim() !== "") {
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (lightboxDesc) lightboxDesc.textContent = desc || "";
+      if (lightboxCaption) lightboxCaption.style.display = "block";
+    } else {
+      if (lightboxCaption) lightboxCaption.style.display = "none";
+      if (lightboxTitle) lightboxTitle.textContent = "";
+      if (lightboxDesc) lightboxDesc.textContent = "";
+    }
+
+    imageLightbox.classList.add("active");
+    imageLightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+  }
+
+  function closeLightbox() {
+    if (!imageLightbox) return;
+    imageLightbox.classList.remove("active");
+    imageLightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+  }
+
+  // Pasang event klik zoom pada seluruh wrapper gambar produk
+  const imgWrappers = document.querySelectorAll(".card-img-wrapper");
+  imgWrappers.forEach((wrapper) => {
+    wrapper.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const img = wrapper.querySelector(".card-img");
+      if (img) {
+        openLightbox(img);
+      }
+    });
+  });
+
+  // Event tutup Lightbox: Tombol (X)
+  if (btnLightboxClose) {
+    btnLightboxClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+  }
+
+  // Event tutup Lightbox: Klik area luar gambar (backdrop)
+  if (imageLightbox) {
+    imageLightbox.addEventListener("click", (e) => {
+      if (e.target === imageLightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Event Keyboard: Tutup Lightbox atau Order Modal dengan tombol Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (imageLightbox && imageLightbox.classList.contains("active")) {
+        closeLightbox();
+      } else if (orderModal && orderModal.classList.contains("open")) {
+        closeModal();
+      }
+    }
+  });
 });

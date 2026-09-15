@@ -25,6 +25,15 @@
       </div>
       <h1 class="site-title">Pricelist <span>Qi Media</span></h1>
       <p class="site-subtitle">Penyewaan peralatan multimedia profesional, kamera flagship, audio nirkabel, stabilizer, dan pencahayaan studio dengan tarif terjangkau.</p>
+      
+      <!-- Badge Jadwal Tanggal Sewa Terpilih -->
+      <div class="rental-date-badge-wrapper" id="headerRentalDateWrapper" style="display: none;">
+        <div class="rental-date-badge" id="headerRentalDateBadge">
+          <span class="date-icon">📅</span>
+          <span>Jadwal Sewa: <strong id="headerRentalDateText">-</strong></span>
+          <button type="button" class="btn-change-date" id="btnChangeDate" title="Ubah Tanggal Sewa">Ubah</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -48,6 +57,8 @@
             <img src="assets/images/phones/iPhone13.png" 
                  alt="iPhone 13" 
                  class="card-img" 
+                 data-title="iPhone 13 128GB"
+                 data-desc="Nikmati pengalaman merekam video layaknya profesional dengan fitur khas cinematic yang memukau."
                  loading="lazy">
           </div>
           <div class="card-body">
@@ -81,6 +92,8 @@
             <img src="assets/images/phones/iPhone17Pro.png" 
                  alt="iPhone 17 Pro" 
                  class="card-img" 
+                 data-title="iPhone 17 Pro 256GB"
+                 data-desc="Dilengkapi dengan Cinema Line Camera for Smartphone untuk hasil gambar luar biasa dan memberikan aura peningkatan penampilan diri."
                  loading="lazy">
           </div>
           <div class="card-body">
@@ -114,6 +127,8 @@
             <img src="assets/images/phones/S23Ultra.png" 
                  alt="Samsung 23 Ultra" 
                  class="card-img" 
+                 data-title="Samsung S23 Ultra 256GB"
+                 data-desc="Pilihan tepat untuk profesional foto dan video yang dilengkapi dengan kemampuan lensa telephoto super tajam."
                  loading="lazy">
           </div>
           <div class="card-body">
@@ -147,6 +162,8 @@
             <img src="assets/images/phones/S24Ultra.png" 
                  alt="Samsung 24 Ultra" 
                  class="card-img" 
+                 data-title="Samsung S24 Ultra 512GB"
+                 data-desc="Rasakan kecanggihan teknologi AI khas yang bisa langsung dirasakan dalam genggaman tangan Anda."
                  loading="lazy">
           </div>
           <div class="card-body">
@@ -180,6 +197,8 @@
             <img src="assets/images/phones/S25Ultra.png" 
                  alt="Samsung 25 Ultra" 
                  class="card-img" 
+                 data-title="Samsung S25 Ultra 256GB"
+                 data-desc="Unit paling terbaru dari kami yang siap memberikan performa maksimal dan aura peningkatan penampilan diri yang eksklusif."
                  loading="lazy">
           </div>
           <div class="card-body">
@@ -823,7 +842,7 @@
     </section>
 
     <!-- ==================== OPSI LAYANAN TAMBAHAN ==================== -->
-    <section class="extra-service-section" id="layanan-tambahan">
+    <section class="extra-service-section" id="layanan-tambahan" style="display: none;">
       <div class="extra-service-card">
         <div class="extra-service-main">
           <div class="extra-service-icon" aria-hidden="true">
@@ -885,17 +904,27 @@
           <span class="total-amount" id="totalOrderAmount">Rp 0</span>
         </div>
       </div>
-      <button type="button" class="btn-checkout-wa" id="btnCheckoutWA" aria-label="Lanjutkan ke WhatsApp">
-        <!-- WhatsApp SVG Icon -->
-        <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.216 8.216 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.3z"/>
-        </svg>
-        <span>Continue</span>
-        <!-- Arrow right SVG Icon -->
-        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+      <div class="floating-order-actions">
+        <button type="button" class="btn-reset-order" id="btnResetOrder" aria-label="Batalkan semua pilihan">
+          <!-- Reset / Refresh SVG Icon -->
+          <svg class="reset-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+          <span>Reset Option</span>
+        </button>
+
+        <button type="button" class="btn-checkout-wa" id="btnCheckoutWA" aria-label="Lanjutkan ke WhatsApp">
+          <!-- WhatsApp SVG Icon -->
+          <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.216 8.216 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.3z"/>
+          </svg>
+          <span>Continue</span>
+          <!-- Arrow right SVG Icon -->
+          <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </aside>
 
@@ -913,6 +942,17 @@
       </div>
 
       <div class="modal-body">
+        <!-- Baris Tanggal Sewa Terpilih -->
+        <div class="modal-rental-date-row" id="modalRentalDateRow">
+          <div class="modal-date-content">
+            <span class="modal-date-icon">📅</span>
+            <div>
+              <span class="modal-date-label">Tanggal Mulai Sewa:</span>
+              <strong class="modal-date-value" id="modalRentalDateValue">-</strong>
+            </div>
+          </div>
+        </div>
+
         <!-- Daftar Peralatan Terpilih -->
         <div class="modal-section-group">
           <div class="modal-section-header">
@@ -963,6 +1003,98 @@
           </svg>
           <span>Lanjut Pesan</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WELCOME & DATE PICKER MODAL ==================== -->
+  <div class="welcome-modal-backdrop" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-dialog">
+      <!-- Step 1: Welcome Screen / Resepsionis Virtual -->
+      <div class="welcome-step active" id="welcomeStep1">
+        <div class="welcome-avatar-wrapper">
+          <div class="welcome-avatar-glow"></div>
+          <div class="welcome-avatar">
+            <!-- Receptionist / Concierge SVG -->
+            <svg viewBox="0 0 24 24" class="receptionist-icon" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+          </div>
+          <span class="welcome-online-dot" title="Resepsionis Online"></span>
+        </div>
+
+        <div class="welcome-badge">Resepsionis Virtual Qi Media</div>
+        <h2 class="welcome-title" id="welcomeTitle">Selamat Datang di <span>Katalog Rental</span></h2>
+        <p class="welcome-subtitle">
+          Temukan perlengkapan multimedia profesional terbaik mulai dari iPhone &amp; Samsung flagship, kamera mirrorless, lighting studio, hingga stabilizer untuk menunjang kebutuhan dokumentasi dan event Anda.
+        </p>
+
+        <div class="welcome-guide-box">
+          <div class="guide-item">
+            <span class="guide-num">1</span>
+            <span class="guide-text"><strong>Pilih Peralatan</strong> &amp; tentukan kuantitas unit (QTY)</span>
+          </div>
+          <div class="guide-item">
+            <span class="guide-num">2</span>
+            <span class="guide-text"><strong>Opsi Tambahan</strong> edukasi, pemasangan, &amp; antar-jemput</span>
+          </div>
+          <div class="guide-item">
+            <span class="guide-num">3</span>
+            <span class="guide-text"><strong>Checkout WhatsApp</strong> otomatis terhubung ke admin</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-welcome-next" id="btnWelcomeContinue">
+          <span>Continue</span>
+          <svg viewBox="0 0 24 24" class="arrow-icon"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Step 2: Date Picker Form -->
+      <div class="welcome-step" id="welcomeStep2">
+        <div class="welcome-avatar-wrapper">
+          <div class="welcome-calendar-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+          </div>
+        </div>
+
+        <div class="welcome-badge">Jadwal Sewa Peralatan</div>
+        <h2 class="welcome-title">Tentukan <span>Tanggal Mulai</span></h2>
+        <p class="welcome-subtitle">
+          Pilih tanggal mulai penyewaan unit untuk pengecekan ketersediaan stok peralatan secara real-time oleh admin kami.
+        </p>
+
+        <div class="welcome-date-form">
+          <label for="rentalDatePicker" class="welcome-date-label">
+            <span>Pilih Tanggal Sewa:</span>
+          </label>
+          <div class="date-input-wrapper">
+            <input type="date" id="rentalDatePicker" class="welcome-date-input" required>
+          </div>
+          <p class="date-input-hint" id="dateInputHint">Silakan pilih tanggal untuk mengaktifkan tombol mulai.</p>
+        </div>
+
+        <button type="button" class="btn-welcome-start" id="btnWelcomeGetStarted" disabled>
+          <span>Get Started</span>
+          <svg viewBox="0 0 24 24" class="sparkle-icon"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== LIGHTBOX AUTO ZOOM MODAL ==================== -->
+  <div class="lightbox-backdrop" id="imageLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="btnLightboxClose" aria-label="Tutup gambar">
+      <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+    <div class="lightbox-container" id="lightboxContainer">
+      <div class="lightbox-image-box">
+        <img src="" alt="" id="lightboxImg" class="lightbox-img">
+      </div>
+      <!-- Caption Box (Hanya muncul untuk 5 smartphone dengan data-title/data-desc) -->
+      <div class="lightbox-caption" id="lightboxCaption" style="display: none;">
+        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
       </div>
     </div>
   </div>
