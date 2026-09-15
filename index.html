@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pricelist Sewa Peralatan Multimedia - Kamera Mirrorless, Smartphone Flagship, Stabilizer, Microphone, dan Lighting Studio.">
-  <title>Katalog & Pricelist Sewa Multimedia</title>
+  <title>Katalog & Pricelist Penyewaan Multimedia</title>
   
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
 
       <div class="products-grid">
         <!-- Item 1: iPhone 13 -->
-        <article class="product-card">
+        <article class="product-card" data-id="iphone-13" data-name="iPhone 13" data-price="200000">
           <div class="card-img-wrapper">
             <img src="assets/images/phones/iPhone13.png" 
                  alt="iPhone 13" 
@@ -60,11 +60,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">200K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi iPhone 13" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah iPhone 13">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 2: iPhone 17 Pro -->
-        <article class="product-card">
+        <article class="product-card" data-id="iphone-17-pro" data-name="iPhone 17 Pro" data-price="700000">
           <div class="card-img-wrapper">
             <img src="assets/images/phones/iPhone17Pro.png" 
                  alt="iPhone 17 Pro" 
@@ -81,11 +93,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">700K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi iPhone 17 Pro" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah iPhone 17 Pro">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 3: Samsung 23 Ultra -->
-        <article class="product-card">
+        <article class="product-card" data-id="samsung-23-ultra" data-name="Samsung 23 Ultra" data-price="500000">
           <div class="card-img-wrapper">
             <img src="assets/images/phones/S23Ultra.png" 
                  alt="Samsung 23 Ultra" 
@@ -102,11 +126,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">500K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Samsung 23 Ultra" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Samsung 23 Ultra">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 4: Samsung 24 Ultra -->
-        <article class="product-card">
+        <article class="product-card" data-id="samsung-24-ultra" data-name="Samsung 24 Ultra" data-price="750000">
           <div class="card-img-wrapper">
             <img src="assets/images/phones/S24Ultra.png" 
                  alt="Samsung 24 Ultra" 
@@ -123,11 +159,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">750K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Samsung 24 Ultra" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Samsung 24 Ultra">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 5: Samsung 25 Ultra -->
-        <article class="product-card">
+        <article class="product-card" data-id="samsung-25-ultra" data-name="Samsung 25 Ultra" data-price="850000">
           <div class="card-img-wrapper">
             <img src="assets/images/phones/S25Ultra.png" 
                  alt="Samsung 25 Ultra" 
@@ -143,6 +191,18 @@
             <div class="card-price-row">
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">850K <span class="price-period">/hari</span></span>
+            </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Samsung 25 Ultra" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Samsung 25 Ultra">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -171,7 +231,7 @@
 
       <div class="products-grid">
         <!-- Item 6: Sony A6400 -->
-        <article class="product-card">
+        <article class="product-card" data-id="sony-a6400" data-name="Sony A6400 (+ Memory Card 32GB)" data-price="210000">
           <div class="card-img-wrapper">
             <img src="assets/images/cameras/SonyA6400.png" 
                  alt="Sony A6400" 
@@ -188,11 +248,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">210K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Sony A6400" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Sony A6400">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 7: Sony A6700 -->
-        <article class="product-card">
+        <article class="product-card" data-id="sony-a6700" data-name="Sony A6700 (+ Memory Card 64GB)" data-price="300000">
           <div class="card-img-wrapper">
             <img src="assets/images/cameras/SonyA6700.png" 
                  alt="Sony A6700" 
@@ -209,11 +281,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">300K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Sony A6700" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Sony A6700">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 8: Sony ZV-E10 -->
-        <article class="product-card">
+        <article class="product-card" data-id="sony-zve10" data-name="Sony ZV-E10 (+ Memory Card 32GB)" data-price="210000">
           <div class="card-img-wrapper">
             <img src="assets/images/cameras/SonyZV-E10.png" 
                  alt="Sony ZV-E10" 
@@ -230,11 +314,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">210K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Sony ZV-E10" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Sony ZV-E10">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 9: Lensa 35MM -->
-        <article class="product-card">
+        <article class="product-card" data-id="lensa-35mm" data-name="Lensa 35MM (E-Mount F1.8 OSS)" data-price="75000">
           <div class="card-img-wrapper">
             <img src="assets/images/cameras/LENSASony35MM.png" 
                  alt="Lensa 35MM E-Mount F1.8 OSS" 
@@ -250,6 +346,18 @@
             <div class="card-price-row">
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">75K <span class="price-period">/hari</span></span>
+            </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Lensa 35MM" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Lensa 35MM">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -268,7 +376,7 @@
 
       <div class="products-grid">
         <!-- Item 10: DJI Osmo Mobile 7 -->
-        <article class="product-card">
+        <article class="product-card product-card-dual" data-id="dji-osmo-mobile-7">
           <div class="card-img-wrapper">
             <img src="assets/images/stabilizers/DJIOsmoMobile7.png" 
                  alt="DJI Osmo Mobile 7" 
@@ -285,11 +393,54 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">100K <span class="price-period">/hari</span></span>
             </div>
+
+            <!-- Dual QTY Controls -->
+            <div class="card-dual-options">
+              <!-- Opsi 1: Sewa Alat Saja -->
+              <div class="card-option-row" data-id="dji-osmo-mobile-7-base" data-name="DJI Osmo Mobile 7 (Sewa Alat Saja)" data-price="100000">
+                <div class="option-header-row">
+                  <span class="option-name">Sewa Alat Saja</span>
+                  <span class="option-price">100K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi DJI Osmo Mobile 7 (Sewa Alat Saja)" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah DJI Osmo Mobile 7 (Sewa Alat Saja)">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Opsi 2: + Tambah Edukasi -->
+              <div class="card-option-row" data-id="dji-osmo-mobile-7-edu" data-name="+ Tambah Edukasi (DJI Osmo Mobile 7)" data-price="50000">
+                <div class="option-header-row">
+                  <span class="option-name">+ Tambah Edukasi</span>
+                  <span class="option-price">50K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Edukasi DJI Osmo Mobile 7" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Edukasi DJI Osmo Mobile 7">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 11: DJI RS 3 Basic -->
-        <article class="product-card">
+        <article class="product-card product-card-dual" data-id="dji-rs3-basic">
           <div class="card-img-wrapper">
             <img src="assets/images/stabilizers/DJIRS3.png" 
                  alt="DJI RS 3 Basic" 
@@ -306,11 +457,54 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">250K <span class="price-period">/hari</span></span>
             </div>
+
+            <!-- Dual QTY Controls -->
+            <div class="card-dual-options">
+              <!-- Opsi 1: Sewa Alat Saja -->
+              <div class="card-option-row" data-id="dji-rs3-basic-base" data-name="DJI RS 3 Basic (Sewa Alat Saja)" data-price="250000">
+                <div class="option-header-row">
+                  <span class="option-name">Sewa Alat Saja</span>
+                  <span class="option-price">250K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi DJI RS 3 Basic (Sewa Alat Saja)" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah DJI RS 3 Basic (Sewa Alat Saja)">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Opsi 2: + Tambah Edukasi -->
+              <div class="card-option-row" data-id="dji-rs3-basic-edu" data-name="+ Tambah Edukasi (DJI RS 3 Basic)" data-price="75000">
+                <div class="option-header-row">
+                  <span class="option-name">+ Tambah Edukasi</span>
+                  <span class="option-price">75K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Edukasi DJI RS 3 Basic" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Edukasi DJI RS 3 Basic">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 12: Zhiyun Weebill S -->
-        <article class="product-card">
+        <article class="product-card product-card-dual" data-id="zhiyun-weebill-s">
           <div class="card-img-wrapper">
             <img src="assets/images/stabilizers/ZhiyunWeebillS.png" 
                  alt="Zhiyun Weebill S" 
@@ -326,6 +520,49 @@
             <div class="card-price-row">
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">150K <span class="price-period">/hari</span></span>
+            </div>
+
+            <!-- Dual QTY Controls -->
+            <div class="card-dual-options">
+              <!-- Opsi 1: Sewa Alat Saja -->
+              <div class="card-option-row" data-id="zhiyun-weebill-s-base" data-name="Zhiyun Weebill S (Sewa Alat Saja)" data-price="150000">
+                <div class="option-header-row">
+                  <span class="option-name">Sewa Alat Saja</span>
+                  <span class="option-price">150K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Zhiyun Weebill S (Sewa Alat Saja)" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Zhiyun Weebill S (Sewa Alat Saja)">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Opsi 2: + Tambah Edukasi -->
+              <div class="card-option-row" data-id="zhiyun-weebill-s-edu" data-name="+ Tambah Edukasi (Zhiyun Weebill S)" data-price="75000">
+                <div class="option-header-row">
+                  <span class="option-name">+ Tambah Edukasi</span>
+                  <span class="option-price">75K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Edukasi Zhiyun Weebill S" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Edukasi Zhiyun Weebill S">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -344,7 +581,7 @@
 
       <div class="products-grid">
         <!-- Item 13: Hollyland Lark M2 Combo -->
-        <article class="product-card">
+        <article class="product-card" data-id="hollyland-lark-m2" data-name="Hollyland Lark M2 Combo" data-price="100000">
           <div class="card-img-wrapper">
             <img src="assets/images/audio/HollylandLarkM2.png" 
                  alt="Hollyland Lark M2 Combo" 
@@ -361,11 +598,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">100K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Hollyland Lark M2" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Hollyland Lark M2">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 14: Hollyland Lark M2s Combo -->
-        <article class="product-card">
+        <article class="product-card" data-id="hollyland-lark-m2s" data-name="Hollyland Lark M2s Combo" data-price="100000">
           <div class="card-img-wrapper">
             <img src="assets/images/audio/HollylandLarkM2S.png" 
                  alt="Hollyland Lark M2s Combo" 
@@ -382,11 +631,23 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">100K <span class="price-period">/hari</span></span>
             </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Hollyland Lark M2s" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Hollyland Lark M2s">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 15: DJI Mic 2 -->
-        <article class="product-card">
+        <article class="product-card" data-id="dji-mic-2" data-name="DJI Mic 2" data-price="110000">
           <div class="card-img-wrapper">
             <img src="assets/images/audio/DJIMic2.png" 
                  alt="DJI Mic 2" 
@@ -402,6 +663,18 @@
             <div class="card-price-row">
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">110K <span class="price-period">/hari</span></span>
+            </div>
+            <div class="card-action-row">
+              <span class="qty-label">Sewa:</span>
+              <div class="card-qty-control">
+                <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi DJI Mic 2" disabled>
+                  <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                </button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah DJI Mic 2">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -420,7 +693,7 @@
 
       <div class="products-grid">
         <!-- Item 16: Godox SL60W -->
-        <article class="product-card">
+        <article class="product-card product-card-dual" data-id="godox-sl60w">
           <div class="card-img-wrapper">
             <img src="assets/images/lighting/GodoxSL60W.png" 
                  alt="Godox SL60W" 
@@ -437,11 +710,54 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">150K <span class="price-period">/hari</span></span>
             </div>
+
+            <!-- Dual QTY Controls -->
+            <div class="card-dual-options">
+              <!-- Opsi 1: Sewa Alat Saja -->
+              <div class="card-option-row" data-id="godox-sl60w-base" data-name="Godox SL60W (Sewa Alat Saja)" data-price="150000">
+                <div class="option-header-row">
+                  <span class="option-name">Sewa Alat Saja</span>
+                  <span class="option-price">150K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Godox SL60W (Sewa Alat Saja)" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Godox SL60W (Sewa Alat Saja)">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Opsi 2: + Tambah Pemasangan -->
+              <div class="card-option-row" data-id="godox-sl60w-install" data-name="+ Tambah Pemasangan (Godox SL60W)" data-price="35000">
+                <div class="option-header-row">
+                  <span class="option-name">+ Tambah Pemasangan</span>
+                  <span class="option-price">35K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Pemasangan Godox SL60W" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Pemasangan Godox SL60W">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
         <!-- Item 17: Godox SL60W x2 -->
-        <article class="product-card">
+        <article class="product-card product-card-dual" data-id="godox-sl60w-x2">
           <div class="card-img-wrapper">
             <img src="assets/images/lighting/GodoxSL60WXX.png" 
                  alt="Godox SL60W x2 (Paket 2 Lampu)" 
@@ -458,8 +774,78 @@
               <span class="price-label">Tarif Sewa</span>
               <span class="price-tag">250K <span class="price-period">/hari</span></span>
             </div>
+
+            <!-- Dual QTY Controls -->
+            <div class="card-dual-options">
+              <!-- Opsi 1: Sewa Alat Saja -->
+              <div class="card-option-row" data-id="godox-sl60w-x2-base" data-name="Godox SL60W x2 (Sewa Alat Saja)" data-price="250000">
+                <div class="option-header-row">
+                  <span class="option-name">Sewa Alat Saja</span>
+                  <span class="option-price">250K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Godox SL60W x2 (Sewa Alat Saja)" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Godox SL60W x2 (Sewa Alat Saja)">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Opsi 2: + Tambah Pemasangan -->
+              <div class="card-option-row" data-id="godox-sl60w-x2-install" data-name="+ Tambah Pemasangan (Godox SL60W x2)" data-price="35000">
+                <div class="option-header-row">
+                  <span class="option-name">+ Tambah Pemasangan</span>
+                  <span class="option-price">35K<span class="option-period">/hari</span></span>
+                </div>
+                <div class="option-qty-row">
+                  <span class="option-qty-label">Jumlah:</span>
+                  <div class="card-qty-control">
+                    <button type="button" class="qty-btn qty-btn-minus" aria-label="Kurangi Pemasangan Godox SL60W x2" disabled>
+                      <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    </button>
+                    <span class="qty-value">0</span>
+                    <button type="button" class="qty-btn qty-btn-plus" aria-label="Tambah Pemasangan Godox SL60W x2">
+                      <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- ==================== OPSI LAYANAN TAMBAHAN ==================== -->
+    <section class="extra-service-section" id="layanan-tambahan">
+      <div class="extra-service-card">
+        <div class="extra-service-main">
+          <div class="extra-service-icon" aria-hidden="true">
+            <!-- Delivery Truck SVG -->
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          </div>
+          <div class="extra-service-details">
+            <span class="extra-service-badge">Layanan Ekstra</span>
+            <h3 class="extra-service-title">Transportasi ke Lokasi Event</h3>
+            <p class="extra-service-desc">Layanan pengantaran dan penjemputan unit sewa langsung ke lokasi venue / event Anda secara aman dan tepat waktu.</p>
+          </div>
+        </div>
+        <div class="extra-service-toggle">
+          <label class="transport-checkbox-card" for="transportCheckbox">
+            <input type="checkbox" id="transportCheckbox" class="styled-checkbox transport-checkbox-input">
+            <span class="custom-checkbox-mark"></span>
+            <span class="transport-label-text">
+              <span class="transport-text-main">Tambahkan Layanan Antar Jemput ke Lokasi Event (+ Rp 100.000)</span>
+              <span class="transport-text-sub">Tarif flat pulang-pergi (PP) ke lokasi event</span>
+            </span>
+          </label>
+        </div>
       </div>
     </section>
 
@@ -477,6 +863,110 @@
     </div>
   </footer>
 
+  <!-- ==================== FLOATING ORDER SUMMARY BAR ==================== -->
+  <aside class="floating-order-bar" id="floatingOrderBar" aria-label="Ringkasan Pesanan Sewa">
+    <!-- Checkbox Transportasi pada Bilah Ringkasan Bawah -->
+    <div class="floating-transport-bar">
+      <label class="floating-transport-label" for="transportFloatingCheckbox">
+        <input type="checkbox" id="transportFloatingCheckbox" class="styled-checkbox transport-checkbox-input">
+        <span class="custom-checkbox-mark"></span>
+        <span class="floating-transport-text">Tambahkan Layanan Antar Jemput ke Lokasi Event (+ Rp 100.000)</span>
+      </label>
+    </div>
+
+    <div class="floating-order-container">
+      <div class="order-summary-info">
+        <div class="order-badge">
+          <span class="order-badge-dot"></span>
+          <span id="totalSelectedItems">0</span> Item Dipilih
+        </div>
+        <div class="order-total-price">
+          <span class="total-label">Total Estimasi:</span>
+          <span class="total-amount" id="totalOrderAmount">Rp 0</span>
+        </div>
+      </div>
+      <button type="button" class="btn-checkout-wa" id="btnCheckoutWA" aria-label="Lanjutkan ke WhatsApp">
+        <!-- WhatsApp SVG Icon -->
+        <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.216 8.216 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.3z"/>
+        </svg>
+        <span>Continue</span>
+        <!-- Arrow right SVG Icon -->
+        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== MODAL KONFIRMASI PESANAN ==================== -->
+  <div class="modal-backdrop" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge-status">Konfirmasi Penyewaan</span>
+          <h2 class="modal-title" id="modalTitle">Ringkasan Pesanan Sewa</h2>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnModalClose" aria-label="Tutup modal">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Daftar Peralatan Terpilih -->
+        <div class="modal-section-group">
+          <div class="modal-section-header">
+            <span class="modal-section-title">Peralatan &amp; Layanan Tambahan</span>
+            <span class="modal-item-counter" id="modalItemCounter">0 Item</span>
+          </div>
+          <div class="modal-items-list" id="modalItemsList">
+            <!-- Diisi secara dinamis melalui script.js -->
+          </div>
+        </div>
+
+        <!-- Baris Layanan Transportasi (jika dicentang) -->
+        <div class="modal-transport-row" id="modalTransportRow" style="display: none;">
+          <div class="modal-transport-info">
+            <span class="modal-transport-icon">🚚</span>
+            <div>
+              <strong class="modal-transport-name">Layanan Antar Jemput ke Lokasi Event</strong>
+              <div class="modal-transport-sub">Pengantaran &amp; penjemputan unit ke venue event</div>
+            </div>
+          </div>
+          <span class="modal-transport-price">+ Rp 100.000</span>
+        </div>
+
+        <!-- Total Akhir -->
+        <div class="modal-total-section">
+          <span class="modal-total-label">Total Akhir:</span>
+          <span class="modal-total-amount" id="modalTotalAmount">Rp 0</span>
+        </div>
+
+        <!-- Checkbox Persetujuan Ganti Rugi (Wajib) -->
+        <div class="modal-agreement-box">
+          <label class="modal-agreement-label" for="agreementCheckbox">
+            <input type="checkbox" id="agreementCheckbox" class="styled-checkbox agreement-input">
+            <span class="custom-checkbox-mark"></span>
+            <span class="modal-agreement-text">
+              Saya mengerti dan setuju bahwa jika unit yang disewa hilang, saya wajib membayar ganti rugi senilai unit tersebut.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-cancel" id="btnModalCancel">Batalkan</button>
+        <button type="button" class="btn-modal-proceed" id="btnModalProceed" disabled>
+          <!-- WhatsApp Icon -->
+          <svg class="wa-modal-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.216 8.216 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.3z"/>
+          </svg>
+          <span>Lanjut Pesan</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Tombol Back to Top -->
   <button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
     <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
@@ -486,4 +976,3 @@
   <script src="js/script.js"></script>
 </body>
 </html>
-
