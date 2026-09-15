@@ -1,373 +1,489 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pricelist Sewa Peralatan Multimedia</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pricelist Sewa Peralatan Multimedia - Kamera Mirrorless, Smartphone Flagship, Stabilizer, Microphone, dan Lighting Studio.">
+  <title>Katalog & Pricelist Sewa Multimedia</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet Utama -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title">🎬 Rental Qi Media</h1>
-        <p class="site-subtitle">Pricelist Penyewaan Peralatan Multimedia</p>
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-badge">
+        <span class="pulse-dot"></span>
+        Katalog Penyewaan Multimedia
       </div>
-    </header>
+      <h1 class="site-title">Pricelist <span>Qi Media</span></h1>
+      <p class="site-subtitle">Penyewaan peralatan multimedia profesional, kamera flagship, audio nirkabel, stabilizer, dan pencahayaan studio dengan tarif terjangkau.</p>
+    </div>
+  </header>
 
-    <main class="container">
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="container">
 
-      <!-- ========================================================
-           KATEGORI 1 — iPhone & Samsung
-           data-category digunakan oleh script.js (lihat instructureDev.md)
-      ======================================================== -->
-      <section class="category-section" data-category="iphone-samsung">
-        <h2 class="category-title">📱 iPhone &amp; Samsung</h2>
-        <div class="product-grid">
-
-          <!-- CARD: iPhone 13
-               Untuk mengganti gambar: ubah nilai src di tag <img> di bawah ini.
-               Contoh: src="assets/images/iphone-13.jpg"
-               Lihat instructureDev.md untuk panduan lengkap. -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/iPhone13.png"
-                alt="iPhone 13"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=iPhone+13'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">iPhone 13</h3>
-              <p class="card-price">Rp 200.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: iPhone 17 Pro -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/iPhone17Pro.png"
-                alt="iPhone 17 Pro"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=iPhone+17+Pro'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">iPhone 17 Pro</h3>
-              <p class="card-price">Rp 700.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Samsung 23 Ultra -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/S23Ultra.png"
-                alt="Samsung S23 Ultra"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Samsung+S23+Ultra'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Samsung S23 Ultra</h3>
-              <p class="card-price">Rp 500.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Samsung S24 Ultra -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/S24Ultra.png"
-                alt="Samsung S24 Ultra"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Samsung+S24+Ultra'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Samsung S24 Ultra</h3>
-              <p class="card-price">Rp 750.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Samsung S25 Ultra -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/S25Ultra.png"
-                alt="Samsung S25 Ultra"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Samsung+S25+Ultra'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Samsung S25 Ultra</h3>
-              <p class="card-price">Rp 850.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
+    <!-- 1. KATEGORI: IPHONE & SAMSUNG -->
+    <section class="category-section" id="kategori-smartphone">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <!-- Icon Smartphone -->
+          <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
         </div>
-      </section>
-
-      <!-- ========================================================
-           KATEGORI 2 — Sony Mirrorless & Lensa
-      ======================================================== -->
-      <section class="category-section" data-category="sony-mirrorless">
-        <h2 class="category-title">📷 Sony Mirrorless &amp; Lensa</h2>
-
-        <!-- Catatan kategori ini -->
-        <div class="category-note">
-          <strong>📝 Catatan:</strong> Semua kamera mirrorless sudah termasuk <strong>3 pcs baterai</strong> (kecuali Sony A6700 hanya <strong>2 pcs</strong>) dan <strong>tas kamera</strong>.
-        </div>
-
-        <div class="product-grid">
-
-          <!-- CARD: Sony A6400 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/SonyA6400.png"
-                alt="Sony A6400"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Sony+A6400'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Sony A6400</h3>
-              <p class="card-note">+ Memory Card 32GB</p>
-              <p class="card-price">Rp 210.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Sony A6700 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/SonyA6700.png"
-                alt="Sony A6700"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Sony+A6700'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Sony A6700</h3>
-              <p class="card-note">+ Memory Card 64GB</p>
-              <p class="card-price">Rp 300.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Sony ZV-E10 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/SonyZV-E10.png"
-                alt="Sony ZV-E10"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Sony+ZV-E10'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Sony ZV-E10</h3>
-              <p class="card-note">+ Memory Card 32GB</p>
-              <p class="card-price">Rp 210.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Lensa 35mm -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/LENSASony35MM.png"
-                alt="Lensa 35mm E-Mount"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Lensa+35MM'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Lensa 35MM</h3>
-              <p class="card-note">E-Mount F1.8 OSS</p>
-              <p class="card-price">Rp 75.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ========================================================
-           KATEGORI 3 — Stabilizer
-      ======================================================== -->
-      <section class="category-section" data-category="stabilizer">
-        <h2 class="category-title">🎯 Stabilizer</h2>
-        <div class="product-grid">
-
-          <!-- CARD: DJI Osmo Mobile 7 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/DJIOsmoMobile7.png"
-                alt="DJI Osmo Mobile 7"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=DJI+Osmo+Mobile+7'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">DJI Osmo Mobile 7</h3>
-              <p class="card-note">For HP / Smartphone</p>
-              <p class="card-price">Rp 100.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: DJI RS 3 Basic -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/DJIRS3.png"
-                alt="DJI RS 3 Basic"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=DJI+RS+3+Basic'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">DJI RS 3 Basic</h3>
-              <p class="card-note">For Mirrorless</p>
-              <p class="card-price">Rp 250.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Zhiyun Weebill S -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/ZhiyunWeebillS.png"
-                alt="Zhiyun Weebill S"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Zhiyun+Weebill+S'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Zhiyun Weebill S</h3>
-              <p class="card-note">For Mirrorless</p>
-              <p class="card-price">Rp 150.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ========================================================
-           KATEGORI 4 — Microphone
-      ======================================================== -->
-      <section class="category-section" data-category="microphone">
-        <h2 class="category-title">🎙️ Microphone</h2>
-        <div class="product-grid">
-
-          <!-- CARD: Hollyland Lark M2 Combo -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/HollylandLarkM2.png"
-                alt="Hollyland Lark M2 Combo"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Hollyland+Lark+M2'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Hollyland Lark M2 Combo</h3>
-              <p class="card-price">Rp 100.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Hollyland Lark M2s Combo -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/HollylandLarkM2S.png"
-                alt="Hollyland Lark M2s Combo"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Hollyland+Lark+M2s'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Hollyland Lark M2s Combo</h3>
-              <p class="card-price">Rp 100.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: DJI Mic 2 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/DJIMic2.png"
-                alt="DJI Mic 2"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=DJI+Mic+2'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">DJI Mic 2</h3>
-              <p class="card-price">Rp 110.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ========================================================
-           KATEGORI 5 — Lighting
-      ======================================================== -->
-      <section class="category-section" data-category="lighting">
-        <h2 class="category-title">💡 Lighting</h2>
-        <div class="product-grid">
-
-          <!-- CARD: Godox SL60W -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/GodoxSL60W.png"
-                alt="Godox SL60W"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Godox+SL60W'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Godox SL60W</h3>
-              <p class="card-note">1 unit</p>
-              <p class="card-price">Rp 150.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-          <!-- CARD: Godox SL60W x2 -->
-          <div class="product-card">
-            <div class="card-image-wrapper">
-              <img
-                src="assets/images/GodoxSL60WXX.png"
-                alt="Godox SL60W x2"
-                class="card-img"
-                onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Godox+SL60W+x2'"
-              />
-            </div>
-            <div class="card-body">
-              <h3 class="card-name">Godox SL60W x2</h3>
-              <p class="card-note">2 unit (paket hemat)</p>
-              <p class="card-price">Rp 250.000 <span class="price-unit">/ hari</span></p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-      <div class="container">
-        <p>© 2026 Rental Qi Media &mdash; Semua harga dalam Rupiah per hari sewa.</p>
+        <h2 class="category-title">Kategori iPhone &amp; Samsung</h2>
       </div>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="products-grid">
+        <!-- Item 1: iPhone 13 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/phones/iPhone13.png" 
+                 alt="iPhone 13" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">iPhone 13</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Flagship iOS
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">200K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2: iPhone 17 Pro -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/phones/iPhone17Pro.png" 
+                 alt="iPhone 17 Pro" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">iPhone 17 Pro</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              Pro Grade Cinema
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">700K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3: Samsung 23 Ultra -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/phones/S23Ultra.png" 
+                 alt="Samsung 23 Ultra" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Samsung 23 Ultra</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              200MP &amp; Space Zoom
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">500K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4: Samsung 24 Ultra -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/phones/S24Ultra.png" 
+                 alt="Samsung 24 Ultra" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Samsung 24 Ultra</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              Galaxy AI Ready
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">750K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5: Samsung 25 Ultra -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/phones/S25Ultra.png" 
+                 alt="Samsung 25 Ultra" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Samsung 25 Ultra</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              Ultimate Performance
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">850K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. KATEGORI: SONY MIRRORLESS & LENSA -->
+    <section class="category-section" id="kategori-mirrorless">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <!-- Icon Camera -->
+          <svg viewBox="0 0 24 24"><path d="M9.4 10.5l4.77-8.26C13.47 2.09 12.75 2 12 2c-2.4 0-4.6.85-6.32 2.25l3.66 6.35.06-.1zM21.54 9c-.92-2.92-3.15-5.26-6-6.34L11.88 9h9.66zm.26 1h-7.49l.02.04 4.53 7.84c1.8-1.57 3.04-3.72 3.34-6.14.04-.24.07-.49.07-.74 0-.34-.03-.67-.07-1.02zM8.54 12l-3.9-6.75C3.01 7.03 2 9.39 2 12c0 .8.13 1.57.36 2.3L6.9 12h1.64zm1.4 1l-4.54 7.86c1.65 1.34 3.73 2.14 6 2.14 1.32 0 2.56-.28 3.69-.79L11.4 13H9.94zm2.06.87l3.66 6.34c2.44-.95 4.41-2.82 5.44-5.21H12z"/></svg>
+        </div>
+        <h2 class="category-title">Kategori Sony Mirrorless &amp; Lensa</h2>
+      </div>
+
+      <!-- Kotak Catatan Khusus Mirrorless & Lensa -->
+      <div class="category-notice">
+        <div class="notice-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        </div>
+        <div class="notice-content">
+          <strong>Catatan Khusus Paket Mirrorless:</strong> Semua paket kamera Mirrorless sudah termasuk <strong>3 pcs baterai</strong> (kecuali Sony A6700 diberikan <strong>2 pcs baterai</strong>). Seluruh unit kamera sudah dilengkapi dengan <strong>tas penyimpanan kamera</strong>.
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 6: Sony A6400 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/cameras/SonyA6400.png" 
+                 alt="Sony A6400" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sony A6400</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/></svg>
+              + Memory Card 32GB
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">210K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 7: Sony A6700 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/cameras/SonyA6700.png" 
+                 alt="Sony A6700" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sony A6700</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/></svg>
+              + Memory Card 64GB
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">300K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 8: Sony ZV-E10 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/cameras/SonyZV-E10.png" 
+                 alt="Sony ZV-E10" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sony ZV-E10</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/></svg>
+              + Memory Card 32GB
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">210K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 9: Lensa 35MM -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/cameras/LENSASony35MM.png" 
+                 alt="Lensa 35MM E-Mount F1.8 OSS" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Lensa 35MM</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+              E-Mount F1.8 OSS
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">75K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. KATEGORI: STABILIZER -->
+    <section class="category-section" id="kategori-stabilizer">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <!-- Icon Stabilizer/Gimbal -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <h2 class="category-title">Kategori Stabilizer</h2>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 10: DJI Osmo Mobile 7 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/stabilizers/DJIOsmoMobile7.png" 
+                 alt="DJI Osmo Mobile 7" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">DJI Osmo Mobile 7</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+              for Smartphone (HP)
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">100K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 11: DJI RS 3 Basic -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/stabilizers/DJIRS3.png" 
+                 alt="DJI RS 3 Basic" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">DJI RS 3 Basic</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M9.4 10.5l4.77-8.26C13.47 2.09 12.75 2 12 2c-2.4 0-4.6.85-6.32 2.25l3.66 6.35.06-.1zM21.54 9c-.92-2.92-3.15-5.26-6-6.34L11.88 9h9.66z"/></svg>
+              for Mirrorless Camera
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">250K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 12: Zhiyun Weebill S -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/stabilizers/ZhiyunWeebillS.png" 
+                 alt="Zhiyun Weebill S" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Zhiyun Weebill S</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M9.4 10.5l4.77-8.26C13.47 2.09 12.75 2 12 2c-2.4 0-4.6.85-6.32 2.25l3.66 6.35.06-.1zM21.54 9c-.92-2.92-3.15-5.26-6-6.34L11.88 9h9.66z"/></svg>
+              for Mirrorless Camera
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">150K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. KATEGORI: MICROPHONE -->
+    <section class="category-section" id="kategori-microphone">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <!-- Icon Mic -->
+          <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20H9c-.55 0-1 .45-1 1s.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1h-2v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/></svg>
+        </div>
+        <h2 class="category-title">Kategori Microphone</h2>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 13: Hollyland Lark M2 Combo -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/audio/HollylandLarkM2.png" 
+                 alt="Hollyland Lark M2 Combo" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Hollyland Lark M2 Combo</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+              Wireless Audio Combo
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">100K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 14: Hollyland Lark M2s Combo -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/audio/HollylandLarkM2S.png" 
+                 alt="Hollyland Lark M2s Combo" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Hollyland Lark M2s Combo</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+              Enhanced Series Combo
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">100K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 15: DJI Mic 2 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/audio/DJIMic2.png" 
+                 alt="DJI Mic 2" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">DJI Mic 2</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/></svg>
+              32-bit Float Internal Rec
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">110K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. KATEGORI: LIGHTING -->
+    <section class="category-section" id="kategori-lighting">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <!-- Icon Light/Sun -->
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
+        </div>
+        <h2 class="category-title">Kategori Lighting</h2>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 16: Godox SL60W -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/lighting/GodoxSL60W.png" 
+                 alt="Godox SL60W" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Godox SL60W</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+              Continuous LED 60W
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">150K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 17: Godox SL60W x2 -->
+        <article class="product-card">
+          <div class="card-img-wrapper">
+            <img src="assets/images/lighting/GodoxSL60WXX.png" 
+                 alt="Godox SL60W x2 (Paket 2 Lampu)" 
+                 class="card-img" 
+                 loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Godox SL60W x2</h3>
+            <span class="card-badge-info">
+              <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+              Paket 2 Unit Lighting Studio
+            </span>
+            <div class="card-price-row">
+              <span class="price-label">Tarif Sewa</span>
+              <span class="price-tag">250K <span class="price-period">/hari</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-info">
+        Pricelist ini merupakan katalog preview resmi penyewaan unit Qi Media. Seluruh unit dicek berkala dalam kondisi prima siap pakai.
+      </p>
+      <p class="copyright">
+        &copy; <span id="current-year">2026</span> Qi Media. Hak Cipta Dilindungi.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Tombol Back to Top -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- Script JS Vanilla -->
+  <script src="js/script.js"></script>
+</body>
 </html>
+

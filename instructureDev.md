@@ -1,270 +1,146 @@
-# 📁 instructureDev.md — Panduan Teknis Developer
+# Panduan Teknis Pengembang (instructureDev.md)
 
-> File ini berisi panduan teknis untuk mengelola aset gambar dan menyesuaikan konten website Pricelist Multimedia.
+## Dokumentasi & Petunjuk Penggantian Aset Foto Website Pricelist Multimedia
+
+Dokumen ini ditujukan sebagai panduan teknis bagi Anda untuk mengelola, menyimpan, dan mengganti seluruh gambar produk pada website pricelist penyewaan peralatan multimedia.
 
 ---
 
-## 1. Struktur Folder Proyek
+## 1. Struktur Folder Penyimpanan Gambar
 
-Setelah Anda mengekstrak semua file, struktur folder yang benar adalah sebagai berikut:
+Seluruh file foto produk Anda harus ditempatkan di dalam direktori `assets/images/`. Untuk menjaga keteraturan proyek, folder telah dibagi berdasarkan kategori produk sebagai berikut:
 
-```
-pricelist-multimedia/          ← root folder proyek
+```text
+r:/Pricelist Multimedia2/
 │
-├── index.html                 ← halaman utama website
-├── style.css                  ← semua styling / tampilan
-├── script.js                  ← logika ringan & animasi
-├── instructureDev.md          ← file panduan ini
+├── index.html                  <-- File HTML utama
+├── css/
+│   └── style.css               <-- File styling CSS
+├── js/
+│   └── script.js               <-- File logika interaktif & fallback
 │
 └── assets/
-    └── images/                ← ⚠️ BUAT FOLDER INI SECARA MANUAL
-        ├── iphone-13.jpg
-        ├── iphone-17-pro.jpg
-        ├── samsung-s23-ultra.jpg
-        ├── samsung-s24-ultra.jpg
-        ├── samsung-s25-ultra.jpg
-        ├── sony-a6400.jpg
-        ├── sony-a6700.jpg
-        ├── sony-zv-e10.jpg
-        ├── lensa-35mm.jpg
-        ├── dji-osmo-mobile-7.jpg
-        ├── dji-rs3-basic.jpg
-        ├── zhiyun-weebill-s.jpg
-        ├── hollyland-lark-m2.jpg
-        ├── hollyland-lark-m2s.jpg
-        ├── dji-mic-2.jpg
-        ├── godox-sl60w.jpg
-        └── godox-sl60w-x2.jpg
-```
-
-### Cara membuat folder `assets/images`:
-
-**Di Windows (File Explorer):**
-```
-Klik kanan di dalam folder proyek → New → Folder → beri nama "assets"
-Masuk ke folder assets → buat folder lagi bernama "images"
-```
-
-**Di Terminal / PowerShell:**
-```powershell
-mkdir assets\images
-```
-
-**Di Terminal Mac/Linux:**
-```bash
-mkdir -p assets/images
+    └── images/
+        ├── phones/             <-- Simpan foto iPhone & Samsung di sini
+        ├── cameras/            <-- Simpan foto Sony Mirrorless & Lensa di sini
+        ├── stabilizers/        <-- Simpan foto Gimbal / Stabilizer di sini
+        ├── audio/              <-- Simpan foto Microphone & Wireless Mic di sini
+        └── lighting/           <-- Simpan foto Lampu Studio Godox di sini
 ```
 
 ---
 
-## 2. Panduan Mengganti Gambar di `index.html`
+## 2. Pemahaman Class CSS Gambar (Rasio Vertikal 9:16)
 
-Setiap produk memiliki satu tag `<img>` di dalam `index.html`. Untuk mengganti placeholder dengan foto asli, ubah nilai atribut **`src`** pada tag tersebut.
+Website ini menggunakan wadah khusus dengan rasio vertikal **9:16** yang telah dioptimasi untuk berbagai macam ukuran gambar asli Anda (mulai dari resolusi terkecil **166 × 157** hingga terbesar **372 × 312**):
 
-### Format atribut `src`:
-```
-src="assets/images/NAMA-FILE-GAMBAR.jpg"
-```
+1. **Class Wadah: `.card-img-wrapper`**
+   - Mengunci proporsi kartu menjadi vertikal tepat 9 banding 16 (`aspect-ratio: 9 / 16;`).
+   - Menyembunyikan bagian foto yang berlebih (`overflow: hidden;`).
+2. **Class Gambar: `.card-img`**
+   - Memastikan foto Anda mengisi seluruh wadah tanpa penyok atau gepeng (`object-fit: cover; object-position: center;`).
+   - Memberikan efek zoom halus saat kursor diarahkan ke kartu produk (`transition: transform 0.6s;`).
 
-### Daftar lengkap tag `<img>` yang harus diperbarui:
-
-| Produk | Baris di index.html | Nilai `src` yang harus diisi |
-|---|---|---|
-| iPhone 13 | ~37 | `assets/images/iphone-13.jpg` |
-| iPhone 17 Pro | ~50 | `assets/images/iphone-17-pro.jpg` |
-| Samsung S23 Ultra | ~63 | `assets/images/samsung-s23-ultra.jpg` |
-| Samsung S24 Ultra | ~76 | `assets/images/samsung-s24-ultra.jpg` |
-| Samsung S25 Ultra | ~89 | `assets/images/samsung-s25-ultra.jpg` |
-| Sony A6400 | ~118 | `assets/images/sony-a6400.jpg` |
-| Sony A6700 | ~132 | `assets/images/sony-a6700.jpg` |
-| Sony ZV-E10 | ~146 | `assets/images/sony-zv-e10.jpg` |
-| Lensa 35MM | ~160 | `assets/images/lensa-35mm.jpg` |
-| DJI Osmo Mobile 7 | ~187 | `assets/images/dji-osmo-mobile-7.jpg` |
-| DJI RS 3 Basic | ~200 | `assets/images/dji-rs3-basic.jpg` |
-| Zhiyun Weebill S | ~213 | `assets/images/zhiyun-weebill-s.jpg` |
-| Hollyland Lark M2 | ~233 | `assets/images/hollyland-lark-m2.jpg` |
-| Hollyland Lark M2s | ~246 | `assets/images/hollyland-lark-m2s.jpg` |
-| DJI Mic 2 | ~259 | `assets/images/dji-mic-2.jpg` |
-| Godox SL60W | ~279 | `assets/images/godox-sl60w.jpg` |
-| Godox SL60W x2 | ~292 | `assets/images/godox-sl60w-x2.jpg` |
-
-### Contoh sebelum dan sesudah:
-
-**Sebelum (placeholder aktif):**
-```html
-<img
-  src="assets/images/iphone-13.jpg"
-  alt="iPhone 13"
-  class="card-img"
-  onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=iPhone+13'"
-/>
-```
-
-**Sesudah (foto sudah tersedia di folder):**
-```html
-<img
-  src="assets/images/iphone-13.jpg"
-  alt="iPhone 13"
-  class="card-img"
-  onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=iPhone+13'"
-/>
-```
-
-> ✅ Selama nama file di folder dan nilai `src` di HTML cocok, gambar akan otomatis muncul.
-> ⚠️ Atribut `onerror` adalah fallback: jika file gambar tidak ditemukan, akan muncul placeholder biru secara otomatis. Anda boleh menghapus `onerror` setelah semua foto sudah tersedia.
+> **PENTING:** Jangan mengubah atau menghapus `class="card-img"` pada elemen `<img>` agar rasio dan penataan gambar tetap presisi dan rapi.
 
 ---
 
-## 3. Aturan Penamaan File Gambar
+## 3. Tabel Pemetaan Baris Kode Penggantian Gambar (`index.html`)
 
-Ikuti aturan berikut agar gambar tidak error:
+Berikut adalah daftar lokasi baris kode yang **spesifik** di dalam file [index.html](file:///r:/Pricelist%20Multimedia2/index.html) beserta class dan nama file lokal yang disarankan:
 
-| Aturan | ✅ Benar | ❌ Salah |
-|---|---|---|
-| Gunakan huruf kecil semua | `iphone-13.jpg` | `iPhone-13.jpg` |
-| Gunakan tanda `-` sebagai pemisah | `sony-a6400.jpg` | `sony a6400.jpg` |
-| Jangan ada spasi | `dji-mic-2.jpg` | `dji mic 2.jpg` |
-| Sesuaikan ekstensi | `godox-sl60w.jpg` | `godox-sl60w.JPG` |
-
-**Format gambar yang didukung:** `.jpg`, `.jpeg`, `.png`, `.webp`
-> Jika menggunakan format `.png` atau `.webp`, ubah ekstensi di atribut `src` di HTML agar sesuai.
-
----
-
-## 4. Cara Mengubah Gambar via `script.js` (Metode Alternatif)
-
-Jika Anda lebih suka mengatur semua path gambar dari **satu tempat**, Anda bisa menggunakan array `PRODUCTS` di dalam `script.js`.
-
-### Langkah-langkah:
-
-**Langkah 1** — Buka `script.js`, temukan array `PRODUCTS` (sekitar baris 65–87).
-Ubah nilai `imgSrc` sesuai nama file Anda:
-
-```js
-// script.js — baris ~65
-const PRODUCTS = [
-  { id: 'iphone-13', imgSrc: 'assets/images/iphone-13.jpg', altText: 'iPhone 13' },
-  // dst...
-];
-```
-
-**Langkah 2** — Di setiap `<img>` di `index.html`, tambahkan atribut `data-product-id`:
-
-```html
-<!-- Tambahkan data-product-id="iphone-13" seperti berikut: -->
-<img
-  data-product-id="iphone-13"
-  src="assets/images/iphone-13.jpg"
-  alt="iPhone 13"
-  class="card-img"
-/>
-```
-
-**Langkah 3** — Di `script.js`, baris terakhir, **uncomment** baris pemanggilan fungsi:
-
-```js
-// Sebelum (tidak aktif):
-// injectImages();
-
-// Sesudah (aktif):
-injectImages();
-```
+| No  | Kategori                | Nama Barang                  | Baris Target di `index.html` | Target Class | Lokasi & Nama File Rekomendasi                    |
+| :-: | :---------------------- | :--------------------------- | :--------------------------: | :----------: | :------------------------------------------------ |
+|  1  | iPhone & Samsung        | **iPhone 13**                |         **Baris 48**         |  `card-img`  | `assets/images/phones/iphone-13.jpg`              |
+|  2  | iPhone & Samsung        | **iPhone 17 Pro**            |         **Baris 69**         |  `card-img`  | `assets/images/phones/iphone-17-pro.jpg`          |
+|  3  | iPhone & Samsung        | **Samsung 23 Ultra**         |         **Baris 90**         |  `card-img`  | `assets/images/phones/samsung-23-ultra.jpg`       |
+|  4  | iPhone & Samsung        | **Samsung 24 Ultra**         |        **Baris 111**         |  `card-img`  | `assets/images/phones/samsung-24-ultra.jpg`       |
+|  5  | iPhone & Samsung        | **Samsung 25 Ultra**         |        **Baris 132**         |  `card-img`  | `assets/images/phones/samsung-25-ultra.jpg`       |
+|  6  | Sony Mirrorless & Lensa | **Sony A6400**               |        **Baris 176**         |  `card-img`  | `assets/images/cameras/sony-a6400.jpg`            |
+|  7  | Sony Mirrorless & Lensa | **Sony A6700**               |        **Baris 197**         |  `card-img`  | `assets/images/cameras/sony-a6700.jpg`            |
+|  8  | Sony Mirrorless & Lensa | **Sony ZV-E10**              |        **Baris 218**         |  `card-img`  | `assets/images/cameras/sony-zve10.jpg`            |
+|  9  | Sony Mirrorless & Lensa | **Lensa 35MM**               |        **Baris 239**         |  `card-img`  | `assets/images/cameras/lensa-35mm.jpg`            |
+| 10  | Stabilizer              | **DJI Osmo Mobile 7**        |        **Baris 273**         |  `card-img`  | `assets/images/stabilizers/dji-osmo-mobile-7.jpg` |
+| 11  | Stabilizer              | **DJI RS 3 Basic**           |        **Baris 294**         |  `card-img`  | `assets/images/stabilizers/dji-rs3-basic.jpg`     |
+| 12  | Stabilizer              | **Zhiyun Weebill S**         |        **Baris 315**         |  `card-img`  | `assets/images/stabilizers/zhiyun-weebill-s.jpg`  |
+| 13  | Microphone              | **Hollyland Lark M2 Combo**  |        **Baris 349**         |  `card-img`  | `assets/images/audio/hollyland-lark-m2.jpg`       |
+| 14  | Microphone              | **Hollyland Lark M2s Combo** |        **Baris 370**         |  `card-img`  | `assets/images/audio/hollyland-lark-m2s.jpg`      |
+| 15  | Microphone              | **DJI Mic 2**                |        **Baris 391**         |  `card-img`  | `assets/images/audio/dji-mic-2.jpg`               |
+| 16  | Lighting                | **Godox SL60W**              |        **Baris 425**         |  `card-img`  | `assets/images/lighting/godox-sl60w.jpg`          |
+| 17  | Lighting                | **Godox SL60W x2**           |        **Baris 446**         |  `card-img`  | `assets/images/lighting/godox-sl60w-x2.jpg`       |
 
 ---
 
-## 5. Cara Mengubah Tampilan (style.css)
+## 4. Panduan Langkah Demi Langkah Mengganti Foto
 
-### Ganti Warna Aksen
+Untuk mengganti foto placeholder dengan foto asli milik Anda, ikuti 3 langkah mudah berikut:
 
-Buka `style.css`, temukan blok `:root` di bagian atas (baris ~17). Ubah nilai variabel berikut:
+### Langkah 1: Masukkan File Foto ke Folder Terkait
 
-```css
-:root {
-  --color-accent:   #3b82d4;  /* ← Warna biru utama: judul, harga, border hover */
-  --color-accent2:  #2563b8;  /* ← Warna biru gelap saat hover */
-  --color-bg:       #f5f7fa;  /* ← Warna latar halaman */
-  --color-surface:  #ffffff;  /* ← Warna latar card produk */
-}
-```
+Salin file gambar Anda ke dalam subfolder yang sesuai di dalam `assets/images/`.  
+_Contoh:_ Simpan foto iPhone 13 Anda ke dalam `assets/images/phones/` dan beri nama file `iphone-13.jpg` (atau format `.png` / `.webp`).
 
-### Ubah Ukuran Card
+### Langkah 2: Buka File `index.html` dan Ubah Atribut `src`
 
-Di `style.css`, cari class `.product-grid` (baris ~130):
+Buka file `index.html` menggunakan teks editor Anda (seperti VS Code atau Notepad), lalu cari baris kode produk yang bersangkutan.
 
-```css
-.product-grid {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  /*                                               ↑
-     Ubah 220px untuk memperbesar/memperkecil lebar minimum card.
-     Contoh: 180px = lebih kecil, 280px = lebih besar            */
-}
-```
+**Contoh Kasus 1: Mengganti Foto iPhone 13 (Baris 48)**
 
-### Ubah Rasio Gambar Card
-
-Di `style.css`, cari class `.card-image-wrapper` (baris ~145):
-
-```css
-.card-image-wrapper {
-  padding-bottom: 75%;   /* 4:3 */
-  /* Ganti dengan:
-     56.25%  untuk rasio 16:9
-     100%    untuk rasio 1:1 (kotak)   */
-}
-```
-
----
-
-## 6. Cara Menambah Produk Baru
-
-**Langkah 1** — Siapkan gambar dan letakkan di `assets/images/nama-produk-baru.jpg`
-
-**Langkah 2** — Buka `index.html`, temukan section kategori yang sesuai (ditandai komentar `<!-- KATEGORI ... -->`).
-
-**Langkah 3** — Copy salah satu blok card yang sudah ada, lalu tempel di dalam `<div class="product-grid">`. Ubah nilai berikut:
-
-```html
-<div class="product-card">
-  <div class="card-image-wrapper">
+- **Kode Semula (Placeholder Online):**
+  ```html
+  <div class="card-img-wrapper">
     <img
-      src="assets/images/nama-produk-baru.jpg"    <!-- ← Ganti src -->
-      alt="Nama Produk Baru"                       <!-- ← Ganti alt -->
+      src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=720&q=80"
+      alt="iPhone 13"
       class="card-img"
-      onerror="this.src='https://placehold.co/400x300/e8f0fe/3b82d4?text=Nama+Produk'"
+      loading="lazy"
     />
   </div>
-  <div class="card-body">
-    <h3 class="card-name">Nama Produk Baru</h3>     <!-- ← Nama produk -->
-    <p class="card-note">Catatan opsional</p>        <!-- ← Hapus baris ini jika tidak perlu -->
-    <p class="card-price">Rp 000.000 <span class="price-unit">/ hari</span></p>
+  ```
+- **Ubah Menjadi (File Lokal Milik Anda):**
+  ```html
+  <div class="card-img-wrapper">
+    <img
+      src="assets/images/phones/iphone-13.jpg"
+      alt="iPhone 13"
+      class="card-img"
+      loading="lazy"
+    />
   </div>
-</div>
-```
+  ```
 
-**Langkah 4** — Jika menggunakan metode `script.js`, tambahkan juga entri baru di array `PRODUCTS`:
+**Contoh Kasus 2: Mengganti Foto Sony A6400 (Baris 176)**
 
-```js
-{ id: 'nama-produk-baru', imgSrc: 'assets/images/nama-produk-baru.jpg', altText: 'Nama Produk Baru' },
-```
+- **Ubah Atribut `src` Menjadi:**
+  ```html
+  <img
+    src="assets/images/cameras/sony-a6400.jpg"
+    alt="Sony A6400"
+    class="card-img"
+    loading="lazy"
+  />
+  ```
 
----
+### Langkah 3: Simpan dan Refresh Browser
 
-## 7. Deploy ke Vercel atau Netlify
-
-Website ini adalah **static site murni** — tidak butuh build step apapun.
-
-### Vercel:
-1. Push folder proyek ke GitHub
-2. Login ke [vercel.com](https://vercel.com) → **Add New Project**
-3. Import repo → biarkan semua setting default → **Deploy**
-
-### Netlify:
-1. Login ke [netlify.com](https://www.netlify.com) → **Add new site**
-2. Pilih **Deploy manually** → drag & drop seluruh folder proyek
-3. *Atau* hubungkan ke GitHub repo untuk auto-deploy
-
-> ✅ Pastikan folder `assets/images/` dan semua file gambar sudah di-push ke repo sebelum deploy.
+Tekan `Ctrl + S` untuk menyimpan file `index.html`, lalu buka atau refresh halaman `index.html` di browser Anda. Foto akan langsung tampil proporsional secara otomatis.
 
 ---
 
-*File ini dibuat otomatis sebagai panduan teknis proyek Pricelist Multimedia.*
+## 5. Fitur Pengaman Fallback Otomatis
+
+Jika Anda salah mengetikkan nama file foto atau file gambar belum sempat diletakkan di dalam folder, sistem JavaScript pada file `js/script.js` akan secara otomatis menampilkan **Placeholder SVG Studio Multimedia 9:16 yang elegan** bertuliskan _"Foto Belum Tersedia"_. Hal ini memastikan tata letak kartu website tidak akan pernah berantakan atau menampilkan ikon gambar pecah (broken image) di hadapan klien Anda.
+
+---
+
+## 6. Tips Optimasi Foto untuk Deploy ke Vercel / Netlify
+
+1. **Format Gambar yang Disarankan:**
+   - Gunakan format **WebP** atau **JPG** untuk kompresi terbaik dan loading halaman kilat.
+   - Format **PNG** cocok jika foto produk Anda memiliki latar belakang transparan.
+2. **Ukuran File:**
+   - Karena resolusi foto asli Anda berkisar antara `166x157` hingga `372x312`, ukuran filenya sudah relatif ringan.
+   - Usahakan ukuran tiap file gambar tetap di bawah **300 KB** agar klien yang mengakses via koneksi seluler HP dapat membuka website dengan seketika.
+3. **Deploy ke Vercel atau Netlify:**
+   - Website ini 100% statis murni tanpa build command yang rumit.
+   - Anda cukup menghubungkan repository Git ke Vercel/Netlify atau menggunakan fitur _Drag and Drop folder_ pada dashboard Netlify Drop.

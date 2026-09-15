@@ -1,0 +1,549 @@
+/* ==========================================================================
+   PRICELIST MULTIMEDIA - MODERN CLEAN STYLESHEET
+   Pure Vanilla CSS - Ultra Lightweight & Fully Responsive
+   ========================================================================== */
+
+/* --- 1. CSS VARIABLES (DESIGN SYSTEM) --- */
+:root {
+  /* Brand & Accent Colors (Modern Blue Spectrum) */
+  --primary: #2563eb;          /* Royal Blue */
+  --primary-hover: #1d4ed8;    /* Deep Blue */
+  --primary-light: #eff6ff;    /* Soft Tint Blue */
+  --primary-border: #bfdbfe;   /* Border Blue Tint */
+  --accent-cyan: #0284c7;      /* Vivid Sky Blue */
+  --accent-glow: rgba(37, 99, 235, 0.18);
+
+  /* Background Palette (Modern Ambient Studio Feel) */
+  --bg-gradient-1: #f8fafc;    /* Slate 50 */
+  --bg-gradient-2: #f0f7ff;    /* Soft Ice Blue */
+  --bg-gradient-3: #e0f2fe;    /* Sky 100 */
+  --pattern-color: rgba(37, 99, 235, 0.05);
+
+  /* Card & Surface */
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(226, 232, 240, 0.85);
+  --card-border-hover: rgba(37, 99, 235, 0.45);
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 20px 30px -8px var(--accent-glow), 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+
+  /* Typography */
+  --text-main: #0f172a;        /* Slate 900 */
+  --text-muted: #475569;       /* Slate 600 */
+  --text-light: #64748b;       /* Slate 500 */
+  
+  /* Radii & Transitions */
+  --radius-card: 16px;
+  --radius-img: 12px;
+  --radius-badge: 9999px;
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 2. RESET & BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--bg-gradient-1);
+  background-image: 
+    radial-gradient(var(--pattern-color) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 10% 15%, rgba(37, 99, 235, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+    linear-gradient(145deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 40%, var(--bg-gradient-3) 100%);
+  background-size: 28px 28px, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* --- 3. CONTAINER --- */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.25rem;
+}
+
+/* --- 4. HEADER & HERO --- */
+.site-header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-badge);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.brand-badge .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.site-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.site-title span {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* --- 5. CATEGORY SECTIONS --- */
+.category-section {
+  margin-bottom: 3.5rem;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(37, 99, 235, 0.15);
+  position: relative;
+}
+
+.category-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.category-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  flex-shrink: 0;
+}
+
+.category-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.category-title {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+/* Category Notice Box (Note Mirrorless & Lensa) */
+.category-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: rgba(239, 246, 255, 0.9);
+  border: 1px solid var(--primary-border);
+  border-left: 4px solid var(--primary);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06);
+}
+
+.notice-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.notice-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.notice-content {
+  font-size: 0.875rem;
+  color: #1e3a8a;
+  line-height: 1.5;
+}
+
+.notice-content strong {
+  font-weight: 700;
+}
+
+/* --- 6. PRODUCTS GRID SYSTEM --- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- 7. PRODUCT CARD & HOVER EFFECT --- */
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+/* Elegant Pop & Lift on Hover */
+.product-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* Image Container - Strictly 9:16 Aspect Ratio */
+.card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius-img);
+  overflow: hidden;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image styling with object-fit: cover for any resolution */
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.product-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* Subtle image overlay gradient at top/bottom for readability */
+.card-img-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 0%, transparent 35%, rgba(15, 23, 42, 0.2) 100%);
+  pointer-events: none;
+}
+
+/* Card Content Area */
+.card-body {
+  padding: 1rem 0.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+/* Feature/Bonus Pill */
+.card-badge-info {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.35rem;
+  background: var(--primary-light);
+  color: var(--primary-hover);
+  border: 1px solid var(--primary-border);
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.card-badge-info svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Price Section */
+.card-price-row {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px dashed rgba(203, 213, 225, 0.8);
+}
+
+.price-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.price-tag {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.price-tag .price-period {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* --- 8. FOOTER & CLIENT NOTES --- */
+.site-footer {
+  margin-top: 5rem;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.footer-info {
+  max-width: 600px;
+  margin: 0 auto 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.copyright {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+/* --- 9. BACK TO TOP BUTTON --- */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: var(--transition-smooth);
+  z-index: 99;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.4);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* --- 10. RESPONSIVE BREAKPOINTS --- */
+
+/* Desktop Large (>= 1200px) */
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Laptops / Desktop Normal (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets (576px - 768px) */
+@media (max-width: 768px) and (min-width: 501px) {
+  .site-header {
+    padding: 2.25rem 0 1.5rem;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .category-section {
+    margin-bottom: 2.75rem;
+  }
+}
+
+/* Mobile Screens (<= 500px) */
+@media (max-width: 500px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+  
+  .site-header {
+    padding: 2rem 0 1.25rem;
+  }
+
+  .site-title {
+    font-size: 1.75rem;
+  }
+
+  .category-header {
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .category-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .category-title {
+    font-size: 1.15rem;
+  }
+
+  /* 2-columns grid on mobile: neat & optimized for vertical 9:16 cards */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .product-card {
+    padding: 0.625rem;
+    border-radius: 12px;
+  }
+
+  .card-img-wrapper {
+    border-radius: 8px;
+  }
+
+  .card-body {
+    padding: 0.65rem 0.1rem 0;
+  }
+
+  .card-title {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-badge-info {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-tag {
+    font-size: 1rem;
+  }
+
+  .price-label {
+    font-size: 0.65rem;
+  }
+
+  .category-notice {
+    padding: 0.75rem 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .notice-content {
+    font-size: 0.775rem;
+  }
+}
+
+/* Ultra Small Mobile Screens (<= 340px) */
+@media (max-width: 340px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
