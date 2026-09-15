@@ -1,0 +1,300 @@
+/* ============================================================
+   style.css — Pricelist Sewa Peralatan Multimedia
+   Tema : Putih soft + Aksen Biru
+   ============================================================ */
+
+/* ---------- RESET & BASE ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* === PALET WARNA ===
+     Untuk mengganti tema warna, ubah nilai variabel di bawah ini.
+     --color-accent  : warna aksen utama (judul kategori, harga, border aktif)
+     --color-accent2 : warna aksen sekunder (hover card)
+     --color-bg      : warna latar halaman
+     --color-surface : warna latar card
+  */
+  --color-accent:   #3b82d4;
+  --color-accent2:  #2563b8;
+  --color-bg:       #f5f7fa;
+  --color-surface:  #ffffff;
+  --color-border:   #e5e7eb;
+  --color-text:     #1f2328;
+  --color-muted:    #57606a;
+  --color-note-bg:  #eff6ff;
+  --color-note-border: #bfdbfe;
+
+  --radius-card: 14px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 6px 20px rgba(59, 130, 212, 0.15);
+
+  --font-base: -apple-system, "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ---------- LAYOUT CONTAINER ---------- */
+/* Ubah max-width di sini untuk memperlebar/mempersempit area konten */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 3px solid var(--color-accent);
+  padding: 28px 0 24px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Judul utama website — ubah font-size di sini untuk memperbesar/memperkecil */
+.site-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: -0.3px;
+}
+
+.site-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+main {
+  padding: 40px 20px 60px;
+}
+
+/* ---------- SECTION KATEGORI ---------- */
+/* Jarak antar kategori — ubah margin-bottom untuk mengatur spasi */
+.category-section {
+  margin-bottom: 56px;
+}
+
+/* Judul tiap kategori — warna dikontrol oleh --color-accent */
+.category-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-border);
+  /* Garis aksen di bawah judul — ubah border-color untuk warna berbeda */
+  border-image: linear-gradient(to right, var(--color-accent), transparent) 1;
+}
+
+/* Catatan khusus kategori (contoh: catatan baterai mirrorless) */
+.category-note {
+  background-color: var(--color-note-bg);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.category-note strong {
+  color: var(--color-text);
+}
+
+/* ---------- PRODUCT GRID ---------- */
+/*
+  Grid otomatis responsif menggunakan auto-fill.
+  - minmax(220px, 1fr) : lebar minimum card 220px, maksimum proporsional
+  - Ubah 220px untuk memperbesar/memperkecil card minimum
+*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* ---------- PRODUCT CARD ---------- */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-accent);
+}
+
+/* ---------- CARD IMAGE ---------- */
+/*
+  Wrapper gambar dengan rasio aspek tetap 4:3.
+  Ubah padding-bottom untuk mengubah rasio:
+    - 75%   = 4:3 (default)
+    - 56.25% = 16:9
+    - 100%  = 1:1 (kotak)
+*/
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%;
+  overflow: hidden;
+  background-color: #f0f4ff;
+}
+
+/*
+  class="card-img" — tag <img> di dalam setiap card.
+  object-fit: cover memastikan gambar tidak terdistorsi.
+  Jika gambar terlalu di-zoom, ganti ke object-fit: contain
+*/
+.card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-img {
+  transform: scale(1.04);
+}
+
+/* ---------- CARD BODY ---------- */
+.card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+/* Nama produk */
+.card-name {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+/* Teks catatan kecil di bawah nama (mis. "+ Memory Card 32GB") */
+.card-note {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* Harga produk — warna dikontrol oleh --color-accent */
+.card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* Satuan harga "(/ hari)" */
+.price-unit {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* ---------- RESPONSIVE — TABLET (max 768px) ---------- */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .site-header {
+    padding: 20px 0 16px;
+    position: static; /* Header tidak sticky di layar kecil agar tidak memakan ruang */
+  }
+
+  main {
+    padding: 28px 16px 48px;
+  }
+
+  .category-title {
+    font-size: 1.15rem;
+  }
+
+  /* Di tablet, card minimum 180px agar muat 2 kolom */
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ---------- RESPONSIVE — MOBILE (max 480px) ---------- */
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.25rem;
+  }
+
+  .site-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Di HP kecil, paksa 2 kolom penuh */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card-name {
+    font-size: 0.85rem;
+  }
+
+  .card-price {
+    font-size: 0.95rem;
+  }
+
+  .card-body {
+    padding: 10px 12px 12px;
+  }
+}
+
+/* ---------- RESPONSIVE — LAYAR SANGAT KECIL (max 360px) ---------- */
+@media (max-width: 360px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 kolom untuk HP paling kecil */
+  }
+}
